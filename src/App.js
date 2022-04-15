@@ -31,11 +31,25 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
-    if (this.state.task.text === '') {return}
+    let newPlaceholder = ToDo();
+    if (this.state.task.text === '') {
+      let taskAdded = {
+          text: this.state.placeholder,
+          id: this.state.task.id
+      }
+      this.setState({
+        placeholder: newPlaceholder,
+        tasks: this.state.tasks.concat(taskAdded),
+        task: {
+          text: '', 
+          id: uniqid()
+        }
+      })
+      return
+    }
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
       task: {
-        placeholder: ToDo(),
         text: '', 
         id: uniqid()
       },
@@ -108,7 +122,7 @@ class App extends Component {
         </div>
         <form className="add-task-form" onSubmit={this.onSubmitTask}>
           <input placeholder={placeholder} onChange={this.handleChange} value={task.text} type="text" id="taskInput" autoComplete="off" /> 
-          <button type="submit">
+          <button className="main-button" type="submit">
             Add Task
           </button>
         </form>

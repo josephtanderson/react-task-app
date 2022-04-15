@@ -3,9 +3,12 @@ ul, .empty-list {
     flex-direction: column;
     list-style-type: none;
     max-width: 500px;
-    min-width: 300px;
+    min-width: 375px;
     padding: 0;
     margin-inline: auto;
+}
+li:nth-child(2n-1) {
+    background-color: #f2f2f2;
 }
 .empty-list {
     margin: 16px auto;
@@ -33,14 +36,23 @@ ul, .empty-list {
     align-items: center;
 }
 .del-button {
+    color:#ffffff;
     background-color: #387d7d;
     height: 1.5em;
     width: 1.5em;
     border-radius: 50%;
     border:none;
     margin: 0 .2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.del-icon{
+    pointer-events: none;
+    height: 60%;
 }
 .edit-button {
+    color:#ffffff;
     background-color: #387d7d;
     height: 1.5em;
     width: 1.5em;
@@ -48,6 +60,13 @@ ul, .empty-list {
     align-self: center;
     border:none;
     margin: 0 .2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-icon{
+    pointer-events: none;
+    height: 60%;
 }
 .list-item > span {
     display: flex;
@@ -55,6 +74,7 @@ ul, .empty-list {
     justify-content: center;
 }
 .edit-submit {
+    color:#ffffff;
     background-color: #387d7d;
     height: 1.5em;
     width: 1.5em;
@@ -62,6 +82,13 @@ ul, .empty-list {
     align-self: center;
     border:none;
     margin: 0 .2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.check-icon{
+    pointer-events: none;
+    height: 60%;
 }
 .edit-form > input {
     width: 240px;

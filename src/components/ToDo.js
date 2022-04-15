@@ -21,9 +21,9 @@ const suggestionArr = [
     "Sweep and mop bathrooms",
     "Create a new board game"
 ]
-const ToDo = () => {
-    let index = (Math.round(Math.random()*suggestionArr.length)-1);
-    return suggestionArr[index];
+let i=0;
+const ToDo = (props) => {
+    return suggestionArr[(Math.round(Math.random()*suggestionArr.length)-1)];
 }
 
 export default ToDo
