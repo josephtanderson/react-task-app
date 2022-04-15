@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import uniqid from "uniqid";
+import Overview from "./components/Overview";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      task: {
+        text: '',
+        id: uniqid()
+      },
+      tasks: [],
+    };
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+      },
+    });
+  };
+
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    if (this.state.task.text === '') {return}
+    this.setState({
+      tasks: this.state.tasks.concat(this.state.task),
+      task: {
+        text: '', 
+        id: uniqid()
+      },
+    });
+  };
+  
+  removeTask =(e) => {
+    console.log(this.state.tasks)
+  };
+
+  render() {
+    const { task, tasks } = this.state;
+
+    return (
+      <div>
+        <form onSubmit={this.onSubmitTask}>
+          <label htmlFor="taskInput">Enter task</label>
+          <input onChange={this.handleChange} value={task.text} type="text" id="taskInput"/>
+          <button type="submit">
+            Add Task
+          </button>
+        </form>
+        <Overview delButton={this.removeTask} tasks={tasks} />
+      </div>
+    );
+  }
 }
 
 export default App;
