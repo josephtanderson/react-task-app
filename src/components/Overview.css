@@ -1,0 +1,74 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 0;
+    margin-inline: auto;
+}
+.edit-item {
+    line-height: 1.75em;
+    height: 1.5em;
+}
+.list-item, .edit-form {
+    height: 1.5em;
+    font-size: medium;
+    justify-content: space-between;
+    display: flex;
+    align-items:center;
+}
+.list-item{ 
+    padding: 0 .25em;
+}
+.edit-form {
+    padding-right: .25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.del-button {
+    background-color: #387d7d;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    border:none;
+    margin: 0 .2em;
+}
+.edit-button {
+    background-color: #387d7d;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    align-self: center;
+    border:none;
+    margin: 0 .2em;
+}
+.list-item > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-submit {
+    background-color: #387d7d;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    align-self: center;
+    border:none;
+    margin: 0 .2em;
+}
+.edit-form > input {
+    width: 240px;
+    border: none;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    padding-left:.25em;
+}
+
+.edit-form > input:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #387d7d;
+}
