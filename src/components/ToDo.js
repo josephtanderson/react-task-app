@@ -11,7 +11,7 @@ const suggestionArr = [
     "Iron clothes",
     "Do laundry",
     "Pick up dry cleaning",
-    "learn U.S. Tax law",
+    'Read "U.S. Tax law and How to Avoid It"',
     "Memorize the Declaration of Independence",
     "Sew luchador pajamas",
     "Get a Ph.D.",
