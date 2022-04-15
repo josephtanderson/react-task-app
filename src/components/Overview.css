@@ -1,4 +1,4 @@
-ul {
+ul, .empty-list {
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -6,6 +6,11 @@ ul {
     min-width: 300px;
     padding: 0;
     margin-inline: auto;
+}
+.empty-list {
+    margin: 16px auto;
+    color: #555555;
+    text-align: center;
 }
 .edit-item {
     line-height: 1.75em;
@@ -72,3 +77,12 @@ ul {
     outline: none;
     box-shadow: 0px 0px 5px #387d7d;
 }
+/* .empty-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 0;
+    margin-inline: auto;
+} */

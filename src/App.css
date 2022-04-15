@@ -5,12 +5,19 @@
   align-items: center;
 }
 
-.app-container > h1 {
+.app-container > .title-div {
+  height: 100px;
   background-color: #387d7d;
+  margin-top: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container > .title-div > h1 {
   text-align: center;
   color: #ffffff;
-  height: 1.5em;
 }
 
 .add-task-form {

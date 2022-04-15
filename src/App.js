@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import Overview from "./components/Overview";
+import ToDo from './components/ToDo';
 import './App.css'
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     this.handleEditChange = this.handleEditChange.bind(this);
     this.onEditSubmit = this.onEditSubmit.bind(this);
     this.state = {
+      placeholder: ToDo(),
       task: {
         text: '',
         id: uniqid()
@@ -33,6 +35,7 @@ class App extends Component {
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
       task: {
+        placeholder: ToDo(),
         text: '', 
         id: uniqid()
       },
@@ -48,6 +51,7 @@ class App extends Component {
     }))
   };
   editBtn = (e) => {
+    if (this.state.tasks.map(x => x.hasOwnProperty('edit')).includes(true)) {return};
     let taskID = e.target.attributes.partnertask.nodeValue;
     let index = -1;
     this.state.tasks.map((ele,ind, arr)=> ele.id === taskID ? index = ind: ele);
@@ -95,18 +99,20 @@ class App extends Component {
   };
 
   render() {
-    const { task, tasks, editedTask } = this.state;
-
+    const { task, tasks, editedTask, placeholder } = this.state;
+    
     return (
       <div className="app-container">
-        <h1>TASK MANAGER</h1>
+        <div className="title-div">
+          <h1>TASK MANAGER</h1>
+        </div>
         <form className="add-task-form" onSubmit={this.onSubmitTask}>
-          <input placeholder="Enter Task" onChange={this.handleChange} value={task.text} type="text" id="taskInput" autoComplete="off" /> 
+          <input placeholder={placeholder} onChange={this.handleChange} value={task.text} type="text" id="taskInput" autoComplete="off" /> 
           <button type="submit">
             Add Task
           </button>
         </form>
-        <Overview delButton={this.removeTask} editButton={this.editBtn} editValue={editedTask.text} editChange={this.handleEditChange} editSubmit={this.onEditSubmit} tasks={tasks} />
+        <Overview delButton={this.removeTask} editButton={this.editBtn} editValue={editedTask.text} editChange={this.handleEditChange} editSubmit={this.onEditSubmit} tasks={tasks} />  
       </div>
     );
   }
