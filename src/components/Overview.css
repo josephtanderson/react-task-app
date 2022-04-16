@@ -2,8 +2,9 @@ ul, .empty-list {
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    font-size: x-large;
+    width: 90vw;
     max-width: 500px;
-    min-width: 375px;
     padding: 0;
     margin-inline: auto;
 }
@@ -17,17 +18,17 @@ li:nth-child(2n-1) {
 }
 .edit-item {
     line-height: 1.75em;
-    height: 1.5em;
+    height: 2.5em;
 }
 .list-item, .edit-form {
-    height: 1.5em;
-    font-size: medium;
+    height: 2.5em;
+    font-size: x-large;
     justify-content: space-between;
     display: flex;
     align-items:center;
 }
 .list-item{ 
-    padding: 0 .25em;
+    padding: 0 .5em .2em;
 }
 .edit-form {
     padding-right: .25em;
@@ -35,27 +36,15 @@ li:nth-child(2n-1) {
     justify-content: space-between;
     align-items: center;
 }
-.del-button {
-    color:#ffffff;
-    background-color: #387d7d;
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: 50%;
-    border:none;
-    margin: 0 .2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .del-icon{
     pointer-events: none;
     height: 60%;
 }
-.edit-button {
+.edit-button, .edit-submit, .del-button {
     color:#ffffff;
     background-color: #387d7d;
-    height: 1.5em;
-    width: 1.5em;
+    height: 2.5em;
+    width: 2.5em;
     border-radius: 50%;
     align-self: center;
     border:none;
@@ -73,24 +62,13 @@ li:nth-child(2n-1) {
     align-items: center;
     justify-content: center;
 }
-.edit-submit {
-    color:#ffffff;
-    background-color: #387d7d;
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: 50%;
-    align-self: center;
-    border:none;
-    margin: 0 .2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .check-icon{
     pointer-events: none;
     height: 60%;
 }
 .edit-form > input {
+    height: 2.5em;
+    background-color: #00000000;
     width: 240px;
     border: none;
     font-family: inherit;
@@ -102,14 +80,19 @@ li:nth-child(2n-1) {
 
 .edit-form > input:focus {
     outline: none;
-    box-shadow: 0px 0px 5px #387d7d;
 }
-/* .empty-list {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    max-width: 500px;
-    min-width: 300px;
-    padding: 0;
-    margin-inline: auto;
-} */
+
+@media only screen and (min-width: 768px) {
+    ul, .empty-list {
+        font-size: medium;
+    }
+    .list-item, .edit-form {
+        height: 1.5em;
+        font-size: medium;
+    }
+    .del-button, .edit-button, .edit-submit {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+}
