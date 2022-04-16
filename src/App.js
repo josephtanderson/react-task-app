@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import uniqid from "uniqid";
 import Overview from "./components/Overview";
 import ToDo from './components/ToDo';
-import './App.css'
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
       editedTask: {}
     };
   }
-
+//change on task input
   handleChange = (e) => {
     this.setState({
       task: {
@@ -28,15 +28,17 @@ class App extends Component {
       },
     });
   };
-
+//submit new task
   onSubmitTask = (e) => {
     e.preventDefault();
     let newPlaceholder = ToDo();
+    //if no task entered, create new task with placeholder text
     if (this.state.task.text === '') {
       let taskAdded = {
           text: this.state.placeholder,
           id: this.state.task.id
       }
+      //add placeholder task to task list and pull new placeholder
       this.setState({
         placeholder: newPlaceholder,
         tasks: this.state.tasks.concat(taskAdded),
@@ -47,6 +49,7 @@ class App extends Component {
       })
       return
     }
+    //add inputted task to task list and pull new placeholder
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
       task: {
@@ -57,15 +60,20 @@ class App extends Component {
   };
   
   removeTask =(e) => {
+    //find index of task associated with button using custom attribute on button
     let taskID = e.target.attributes.partnertask.nodeValue;
     let index = -1;
     this.state.tasks.map((ele,ind, arr)=> ele.id === taskID ? index = ind: ele);
+    //remove
     this.setState(state =>({
       tasks: state.tasks.slice(0,index).concat(state.tasks.slice(index+1))
     }))
   };
+
   editBtn = (e) => {
+    //prevent multiple edit buttons being clicked at once
     if (this.state.tasks.map(x => x.hasOwnProperty('edit')).includes(true)) {return};
+    //find index of task associated with button using custom attribute on button
     let taskID = e.target.attributes.partnertask.nodeValue;
     let index = -1;
     this.state.tasks.map((ele,ind, arr)=> ele.id === taskID ? index = ind: ele);
